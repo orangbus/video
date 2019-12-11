@@ -1,15 +1,14 @@
 <template>
   <div id="app">
-    <VideoHeader></VideoHeader>
-    <VideoContent></VideoContent>
-    <VideoFooter></VideoFooter>
+    <AppHeader></AppHeader>
+    <router-view></router-view>
+    <AppFooter></AppFooter>
   </div>
 </template>
 
 <script>
-import VideoHeader from './components/Header';
-import VideoContent from './components/Content';
-import VideoFooter from './components/Footer';
+import AppHeader from './components/Header';
+import AppFooter from './components/Footer';
 
 export default {
   name: 'app',
@@ -19,9 +18,8 @@ export default {
     }
   },
   components:{
-    VideoHeader,
-    VideoContent,
-    VideoFooter
+    AppHeader,
+    AppFooter
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg  bg-dark" style="margin-top:15px;">
+    <nav class="navbar navbar-expand-lg  bg-dark" style="margin-top:35px;">
         <div class="container" style="color: white">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        name : 'Footer',
+        name : 'AppFooter',
         data() {
             return {
                 name : "orangbus" ,
@@ -24,21 +24,16 @@
             }
         },
         created() {
-            const that = this;
-            this.axios.get("https://international.v1.hitokoto.cn").then((res) => {
-                that.name = res.data.creator;
-                that.content = res.data.hitokoto;
-            });
-            // layer.alert("Welcome to v.orangbus.cn");
+            this.getwords();
         },
-        methods: {
-            getWord(){
-                const that = this;
+        methods:{
+            getwords(){
                 this.axios.get("https://international.v1.hitokoto.cn").then((res) => {
-                    that.name = res.data.creator;
-                    that.content = res.data.hitokoto;
+                    this.name = res.data.creator;
+                    this.content = res.data.hitokoto;
                 });
             }
+
         }
     }
 </script>
