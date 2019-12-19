@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="case1">
+    <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="input-group mb-3">
@@ -42,7 +42,7 @@
         </div>
         <div class="row" v-show="isplay == true">
             <div class="col-md-12" style="padding: 0px">
-                <iframe v-bind:src="videourl" frameborder="0" id="case3"></iframe>
+                <iframe v-bind:src="videourl" frameborder="0" id="case3" allowfullscreen></iframe>
             </div>
         </div>
         <div class="row">
@@ -107,6 +107,7 @@
         },
         mounted(){
             this.getData();
+            this.isPc();
         },
         methods : {
             Demo:function(){
@@ -185,19 +186,33 @@
                 this.lists = lists;
                 this.vips = vips;
                 // eslint-disable-next-line no-console
-                // console.log(this.lists)
+                console.log(this.lists)
+            },
+            isPc() {
+                if (/AppleWebKit.*mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+                    if (window.location.href.indexOf("?mobile") < 0) {
+                        try {
+                            if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                                // layer.alert('手机页面')
+                                this.url = this.wapurl;
+                            } else if (/iPad/i.test(navigator.userAgent)) {
+                                // layer.alert('平板页面')
+                            } else {
+                                // layer.alert('其他移动端页面')
+                            }
+                        } catch (e) {
+                            // eslint-disable-next-line no-console
+                            console.log(e);
+                        }
+                    }
+
+                }
             }
         }
     }
 </script>
 
 <style scoped>
-    #case1{
-        margin-top:70px;
-    }
-    #app-ifrome{
-        margin-top:0px;
-    }
     #case3{
         width: 100%;
         height: 800px;

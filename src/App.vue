@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <AppHeader></AppHeader>
-    <router-view></router-view>
-    <AppFooter></AppFooter>
+    <AppHeader/>
+    <div id="app-content">
+      <router-view/>
+    </div>
+    <AppFooter/>
   </div>
 </template>
 
@@ -32,4 +34,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+  #app-content {
+    margin-top:70px;
+  }
 </style>

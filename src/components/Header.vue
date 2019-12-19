@@ -14,7 +14,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-<!--                        <router-link to="/video" class="nav-link">资源采集</router-link>-->
+                        <router-link to="/m3u8" class="nav-link">M3u8解析</router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://orangbus.cn" target="_blank">淘宝券</a>
